@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+
+<!--Portfolio site for Nils Berndt - Designer / Developer.
+
+This site utilizes pure HTML5, Javascript, and a CSS 'grid' layout with modular formatting.
+
+It also displays SVG manipulation and programmatic animation with original artwork.
+
+Thanks for looking!-->
+
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width = device-width, initial-scale = 1.0">
+  <title>NILS BERNDT | PORTFOLIO</title>
+  <!--Site styles-->
+  <link rel="stylesheet" type="text/css" href="styles/styles.css">
+  <!--Favicons-->
+  <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
+  <link rel="manifest" href="images/site.webmanifest">
+  <link rel="mask-icon" href="images/safari-pinned-tab.svg" color="#5bbad5">
+  <link rel="shortcut icon" href="images/favicon.ico">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="msapplication-config" content="images/browserconfig.xml">
+  <meta name="theme-color" content="#ffffff">
+  <!--Google Font-->
+  <link href="https://fonts.googleapis.com/css?family=Josefin+Sans" rel="stylesheet">
+</head>
+
+<body>
+  <!--Contact Form (Hidden by default)-->
+  <div id="contactform" class="m-contact-form e-fade-in-fast">
+    <h1>CONTACT ME</h1><br>
+    <form id="form1" action="javascript:;" name="form1">
+      <input type="hidden" name="contact_number">
+      <input type="text" id="vname" name="name" placeholder="Name*"><br>
+      <input type="text" id="vemail" name="email" placeholder="E-mail*"><br>
+      <input type="text" id="vphone" name="phone" placeholder="Phone (optional)"><br>
+      <textarea type="text" rows="5" cols="50" id="vmsg" name="msg" placeholder="Enter Message*" required="">
+      </textarea>
+    </form>
+    <h4>(*required)</h4>
+    <div class="m-contact-form--buttons">
+      <button type="reset" class="e-shrink-3" id="cancel" form="form1" value="Cancel">CANCEL</button>
+      <button type="submit" class="e-shrink-3" id="submit" form="form1" value="Submit">SUBMIT</button>
+    </div>
+  </div>
+  <!--End Contact Form-->
+
+  <!--Terminal 'easter egg' (Hidden by default. You found it!)-->
+  <div>
+    <form class="e-fade-in-fast m-terminal-container m-terminal-input e-hidden" action="javascript:;">
+      <!-- hidden input for submit on 'enter/return'-->
+      <input type="submit" class="e-hidden" />
+      <p class="m-bash-dollar">$</p>
+      <input type="text" class="m-bash-input" placeholder="need &#39;help&#39;?" autofocus="autofocus" maxlength="30" />
+    </form>
+    <div class="m-terminal-container m-terminal-info">
+      <div class="m-terminal-info--text"></div>
+    </div>
+  </div>
+  <!--End 'terminal'-->
+
+  <!--'Master' grid for page layout-->
+  <div class="m-page-container e-fade-in">
+    <header>
+      <!--Header grid-->
+      <div class="m-header">
+        <object data="images/header-logo.svg" class="m-header--logo-svg" type="image/svg+xml"></object>
+        <ul class="m-nav-container">
+          <li class="m-nav-item m-nav-item--1 e-shrink-1"><a href="#">DEVELOPMENT</a></li>
+          <li class="m-nav-item m-nav-item--2 e-shrink-2"><a href="#design">DESIGN</a></li>
+          <li class="m-nav-item m-nav-item--3 e-shrink-1"><a href="#skills">SKILLS</a></li>
+        </ul>
+      </div>
+    </header>
+
+    <!--Spacer to push top down-->
+    <div class="l-spacer"></div>
+
+    <!--'darkens' bg when contact form is opened-->
+    <div id="darkdiv" class="e-darken"></div>
+
+    <!--UI / APP Container-->
+
+    <!--ConCSStruct-->
+    <div class="e-shadow m-body-container-outer">
+      <h1>WEB / MOBILE APP DEVELOPMENT</h1><br>
+      <div class="e-shadow m-body-container-inner"><br>
+        <h2>ConCSStruct <a href="https://www.concsstruct.com" target="_blank">(concsstruct.com)</a></h2>
+        <div class="m-body-media-block m-body-media-block--web">
+          <a href="https://www.concsstruct.com" target="_blank"><img src="images/concsstruct.png" alt="ConCSStruct"
+              class="m-portfolio-img--web e-zoom" width="700" height="394"></a>
+          <div class="m-body-txt"><br>
+            <p class="l-justify"><b>ConCSStruct</b> is a coding-based game where users complete construction
+              tasks by coding "blueprints" using HTML and modular CSS class
+              styles. The game is built with a <b>React / Redux</b> state storage system providing real-time updating,
+              game logic and level management.</p><br><br>
+            <p><b>Built with:</b></p>
+            <a href='https://reactjs.org' target="_blank">
+              <img class="e-shrink-3" width="125" alt='React JS' src='images/react.png'>
+            </a>
+            <a href='https://redux.js.org' target="_blank">
+              <img class="e-shrink-3" width="150" alt='Redux' src='images/redux.png' />
+            </a><br><br>
+          </div>
+        </div>
+      </div>
+
+      <!--10kT-->
+      <div class="e-shadow m-body-container-inner"><br>
+        <h2>10kT <a href="http://10kt.app" target="_blank">(10kt.app)</a></h2>
+        <div class="m-body-media-block m-body-media-block--app">
+          <a href="https://10kt.app" target="_blank"><img src="images/10ktUI.png" alt="10kT App" class="e-zoom m-portfolio-img--app"
+              width="200" height="369"></a>
+          <!--Page tag for nav link-->
+          <div id="design"></div>
+          <div class="m-body-txt"><br>
+            <p class="l-justify"><b>10kT</b> is a dynamic, real-time text editing platform where
+              <b>{wordblock}</b>s can be modified by users from the Android app and viewed live on the web at
+              <b><a href="https://10kt.app" target="_blank">10kt.app</a></b>.
+              Changes are seen immediately across all channels due to a <b>Google Firebase Realtime Database</b>
+              back-end.<br><br>Now in Beta testing on the <b>Google Play Store.</b></p><br>
+            <a href='https://play.google.com/store/apps/details?id=com.nsb.android.a10kt&amp;pcampaignid=MKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1'
+              target="_blank">
+              <img class="e-shrink-3" width="150" alt='Get it on Google Play' src='https://play.google.com/intl/en_us/badges/images/generic/en_badge_web_generic.png'>
+            </a>
+            <a href='https://firebase.google.com' target="_blank">
+              <img class="e-shrink-3" width="150" alt='Built with Firebase' src='https://firebase.google.com/downloads/brand-guidelines/PNG/logo-built_white.png'>
+            </a><br><br>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--END UI / APP Container-->
+
+    <!--GRAPHIC Container-->
+    <div class="e-shadow m-body-container-outer">
+      <h1>LOGO &amp; BRAND DESIGN</h1><br>
+
+      <div class="e-shadow m-body-container-inner"><br>
+        <img src="images/terrlogo.png" alt="TERR" class="m-portfolio-img--logo e-bounce-float e-bounce-float--1">
+        <img src="images/enchantedlogo.png" alt="Enchanted" class="m-portfolio-img--logo e-bounce-float e-bounce-float--2">
+        <img src="images/OmmonoSlant.png" alt="OMMONO" class="m-portfolio-img--logo e-bounce-float e-bounce-float--3">
+        <img src="images/RPlogo.png" alt="RP Apothecary" class="m-portfolio-img--logo e-bounce-float e-bounce-float--1">
+        <img src="images/Berndtlogo.png" alt="Berndt Woodwork" class="m-portfolio-img--logo e-bounce-float e-bounce-float--2">
+        <img src="images/10kTlogo.png" alt="10kT" class="m-portfolio-img--logo e-bounce-float e-bounce-float--3">
+        <img src="images/portlandpartylogo.png" alt="Portland Party People" class="m-portfolio-img--logo e-bounce-float e-bounce-float--1"><br><br>
+      </div>
+    </div>
+    <!--END GRAPHIC Container-->
+
+    <!--WEB Container-->
+    <div class="e-shadow m-body-container-outer">
+      <h1>WEB DESIGN</h1><br>
+
+      <div class="e-shadow m-body-container-inner">
+        <img src="images/unibernsite.png" alt="Unibern" class="m-portfolio-img--web e-zoom">
+        <img src="images/enchantedsite.jpg" alt="Enchanted DSM" class="m-portfolio-img--web e-zoom">
+        <img src="images/terrwebsketch.png" alt="TERR Society" class="m-portfolio-img--web e-zoom">
+        <img src="images/berndtwoodweb.jpg" alt="Berndt Woodwork" class="m-portfolio-img--web e-zoom">
+        <!--Page tag for nav link-->
+        <div id="skills"></div>
+      </div>
+    </div>
+    <!--END WEB Container-->
+
+    <!--SKILLS Container-->
+    <div class="e-shadow m-body-container-outer">
+      <h1>SKILLS & ABILITIES</h1><br>
+      <div class="e-shadow m-cascade--container">
+        <h3 class="m-cascade m-cascade--header">Web Technologies</h3>
+        <ul>
+          <li class="m-cascade m-cascade--1">HTML / CSS / Javascript</li>
+          <li class="m-cascade m-cascade--2">React / Flux / Redux</li>
+          <li class="m-cascade m-cascade--3">Google Firebase / AWS Cloud</li>
+          <li class="m-cascade m-cascade--4">JSON / AJAX / REST API Usage</li>
+          <li class="m-cascade m-cascade--5">Node.js / npm</li>
+        </ul>
+      </div>
+
+      <div class="e-shadow m-cascade--container">
+        <h3 class="m-cascade m-cascade--header">Dev Tools</h3>
+        <ul>
+          <li class="m-cascade m-cascade--1"><b>Git:</b> Bash (CLI) / Github / Gitlab</li>
+          <li class="m-cascade m-cascade--2"><b>IDEs:</b> VScode / Sublime / Eclipse / IntelliJ / Notepad++</li>
+          <li class="m-cascade m-cascade--3"><b>Build tools:</b> npm / Gulp / Grunt / React / Firebase</li>
+          <li class="m-cascade m-cascade--4"><b>Bundlers/Modular:</b> SASS, Babel, Handlebars, Browserify</li>
+          <li class="m-cascade m-cascade--5"><b>Cleaning/Testing:</b> ESlint, Jasmine, Mocha, Chrome Devtools</li>
+        </ul>
+      </div>
+
+      <div class="e-shadow m-cascade--container">
+        <h3 class="m-cascade m-cascade--header">Graphic / Layout</h3>
+        <ul>
+          <li class="m-cascade m-cascade--1">Adobe Creative Suite</li>
+          <li class="m-cascade m-cascade--2">Inkscape / GIMP</li>
+          <li class="m-cascade m-cascade--3">Blender / SketchUp (3D Modeling)</li>
+          <li class="m-cascade m-cascade--4">Sketch / Balsamiq / other UI/UX Tools</li>
+          <li class="m-cascade m-cascade--5">Google Material Design</li>
+        </ul>
+      </div><br>
+    </div>
+    <!--END SKILLS Container-->
+  </div><br><br>
+
+  <footer class="m-footer">
+    <h5>&#169;2019 NILS BERNDT - ALL RIGHTS RESERVED - ALL CONTENT ORIGINAL |
+      <a id="footerContact" class="m-footer-mail" href="javascript:;">CONTACT ME</a> | 
+      <a class="m-footer-mail" href="https://github.com/nilsberndt/"> VISIT MY GitHub</a></h5>
+    <h5>This page achieves a 95+/100 score on Google's
+      <a class="m-footer-mail" 
+        href="https://developers.google.com/speed/pagespeed/insights/?url=https%3A%2F%2Fwww.nilsberndt.com%2F"> PageSpeed Insights
+      </a>
+    </h5>
+  </footer>
+
+  <!--Terminal 'easter egg' script-->
+  <script src="scripts/terminal.js"></script>
+  <!--Site JS-->
+  <script src="scripts/index.js"></script>
+  <!--Firebase-->
+  <script src="https://www.gstatic.com/firebasejs/5.7.2/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/5.7.2/firebase-database.js"></script>
+
+</body>
+
+</html>
