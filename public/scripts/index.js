@@ -2,7 +2,77 @@
 document.getElementById("darkdiv").addEventListener("click", closeContact);
 document.getElementById("cancel").addEventListener("click", closeContact);
 document.getElementById("form1").addEventListener("submit", sendMessage);
-document.getElementById("footerContact").addEventListener("click", showContact);
+
+document.getElementById("icoHtml1").addEventListener("mouseover", 
+    function(){changeImage('icoHtml1','images/html5-logo-color.png')});
+document.getElementById("icoHtml1").addEventListener("mouseout", 
+    function(){changeImage('icoHtml1','images/html5-logo-white.png')});
+
+document.getElementById("icoHtml2").addEventListener("mouseover", 
+    function(){changeImage('icoHtml2','images/html5-logo-color.png')});
+document.getElementById("icoHtml2").addEventListener("mouseout", 
+    function(){changeImage('icoHtml2','images/html5-logo-white.png')});
+
+document.getElementById("icoFirebase1").addEventListener("mouseover", 
+    function(){changeImage('icoFirebase1','images/firebase-logo-color.png')});
+document.getElementById("icoFirebase1").addEventListener("mouseout", 
+    function(){changeImage('icoFirebase1','images/firebase-logo-white.png')});
+
+document.getElementById("icoFirebase2").addEventListener("mouseover", 
+    function(){changeImage('icoFirebase2','images/firebase-logo-color.png')});
+document.getElementById("icoFirebase2").addEventListener("mouseout", 
+    function(){changeImage('icoFirebase2','images/firebase-logo-white.png')});
+
+document.getElementById("icoSass").addEventListener("mouseover", 
+    function(){changeImage('icoSass','images/sass-logo-color.png')});
+document.getElementById("icoSass").addEventListener("mouseout", 
+    function(){changeImage('icoSass','images/sass-logo-white.png')});
+    
+document.getElementById("icoJsEs6").addEventListener("mouseover", 
+    function(){changeImage('icoJsEs6','images/js-es6-logo-color.png')});
+document.getElementById("icoJsEs6").addEventListener("mouseout", 
+    function(){changeImage('icoJsEs6','images/js-es6-logo-white.png')});
+
+document.getElementById("icoReact").addEventListener("mouseover", 
+    function(){changeImage('icoReact','images/react-logo-color.png')});
+document.getElementById("icoReact").addEventListener("mouseout", 
+    function(){changeImage('icoReact','images/react-logo-white.png')});
+
+document.getElementById("icoRedux").addEventListener("mouseover", 
+    function(){changeImage('icoRedux','images/redux-logo-color.png')});
+document.getElementById("icoRedux").addEventListener("mouseout", 
+    function(){changeImage('icoRedux','images/redux-logo-white.png')});
+
+document.getElementById("icoAndroid").addEventListener("mouseover", 
+    function(){changeImage('icoAndroid','images/android-logo-color.png')});
+document.getElementById("icoAndroid").addEventListener("mouseout", 
+    function(){changeImage('icoAndroid','images/android-logo-white.png')});
+
+document.getElementById("icoJava").addEventListener("mouseover", 
+    function(){changeImage('icoJava','images/java-logo-color.png')});
+document.getElementById("icoJava").addEventListener("mouseout", 
+    function(){changeImage('icoJava','images/java-logo-white.png')});
+
+document.getElementById("icoJs").addEventListener("mouseover", 
+    function(){changeImage('icoJs','images/js-logo-color.png')});
+document.getElementById("icoJs").addEventListener("mouseout", 
+    function(){changeImage('icoJs','images/js-logo-white.png')});
+
+document.getElementById("icoXml").addEventListener("mouseover", 
+    function(){changeImage('icoXml','images/xml-logo-color.png')});
+document.getElementById("icoXml").addEventListener("mouseout", 
+    function(){changeImage('icoXml','images/xml-logo-white.png')});
+
+document.getElementById("icoGithub").addEventListener("mouseover", 
+    function(){changeImage('icoGithub','images/github-logo-color-large.png')});
+document.getElementById("icoGithub").addEventListener("mouseout", 
+    function(){changeImage('icoGithub','images/github-logo-white-large.png')});
+
+document.getElementById("icoContact").addEventListener("mouseover", 
+    function(){changeImage('icoContact','images/contact-logo-color.png')});
+document.getElementById("icoContact").addEventListener("mouseout", 
+    function(){changeImage('icoContact','images/contact-logo-white.png')});
+document.getElementById("icoContact").addEventListener("click", showContact);
 
 var coffeefull = true;
 var monitor1power = true;
@@ -81,6 +151,11 @@ function mouseGo(mous){
 		mous.style.animation = "move 2.5s infinite";
 		mousegoing = true;
 	}
+}
+
+
+function changeImage(imgId, newImgSrc){
+  document.getElementById(imgId).src=newImgSrc;
 }
 
 

@@ -2,9 +2,11 @@
 
 <!--Portfolio site for Nils Berndt - Designer / Developer.
 
-This site utilizes pure HTML5, Javascript, and a CSS 'grid' layout with modular formatting.
+This site utilizes HTML5, Vanilla JS, a CSS 'grid' layout with modular formatting,
 
-It also displays SVG manipulation and programmatic animation with original artwork.
+and Google Firebase cloud functionality for site contact messaging and hosting.
+
+It also displays interactive original SVG artwork with programmatic animation.
 
 Thanks for looking!-->
 
@@ -27,7 +29,7 @@ Thanks for looking!-->
   <meta name="msapplication-config" content="images/browserconfig.xml">
   <meta name="theme-color" content="#ffffff">
   <!--Google Font-->
-  <link href="https://fonts.googleapis.com/css?family=Josefin+Sans" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:300,400,700" rel="stylesheet">
   <!--Firebase-->
   <script src="https://www.gstatic.com/firebasejs/5.7.2/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/5.7.2/firebase-database.js"></script>
@@ -36,16 +38,14 @@ Thanks for looking!-->
 <body>
   <!--Contact Form (Hidden by default)-->
   <div id="contactform" class="m-contact-form e-fade-in-fast">
-    <h1>CONTACT ME</h1><br>
+    <h1>CONTACT ME</h1>
     <form id="form1" action="javascript:;" name="form1">
       <input type="hidden" name="contact_number">
-      <input type="text" id="vname" name="name" placeholder="Name*"><br>
-      <input type="text" id="vemail" name="email" placeholder="E-mail*"><br>
+      <input type="text" id="vname" name="name" placeholder="Name*" required><br>
+      <input type="text" id="vemail" name="email" placeholder="E-mail*" required><br>
       <input type="text" id="vphone" name="phone" placeholder="Phone (optional)"><br>
-      <textarea type="text" rows="5" cols="50" id="vmsg" name="msg" placeholder="Enter Message*" required="">
-      </textarea>
+      <textarea type="text" cols="50" id="vmsg" name="msg" placeholder="Enter Message*" required></textarea>
     </form>
-    <h4>(*required)</h4>
     <div class="m-contact-form--buttons">
       <button type="reset" class="e-shrink-3" id="cancel" form="form1" value="Cancel">CANCEL</button>
       <button type="submit" class="e-shrink-3" id="submit" form="form1" value="Submit">SUBMIT</button>
@@ -74,157 +74,191 @@ Thanks for looking!-->
       <div class="m-header">
         <object data="images/header-logo.svg" class="m-header--logo-svg" type="image/svg+xml"></object>
         <ul class="m-nav-container">
-          <li class="m-nav-item m-nav-item--1 e-shrink-1"><a href="#">DEVELOPMENT</a></li>
-          <li class="m-nav-item m-nav-item--2 e-shrink-2"><a href="#design">DESIGN</a></li>
+          <li class="m-nav-item m-nav-item--1 e-shrink-1"><a href="#">PROJECTS</a></li>
+          <li class="m-nav-item m-nav-item--2 e-shrink-2"><a href="#design">DESIGNS</a></li>
           <li class="m-nav-item m-nav-item--3 e-shrink-1"><a href="#skills">SKILLS</a></li>
         </ul>
       </div>
     </header>
 
-    <!--Spacer to push top down-->
-    <div class="l-spacer"></div>
-
     <!--'darkens' bg when contact form is opened-->
     <div id="darkdiv" class="e-darken"></div>
 
-    <!--UI / APP Container-->
 
-    <!--ConCSStruct-->
-    <div class="e-shadow m-body-container-outer">
-      <h1>WEB / MOBILE APP DEVELOPMENT</h1><br>
-      <div class="e-shadow m-body-container-inner"><br>
-        <h2>ConCSStruct <a href="https://www.concsstruct.com" target="_blank">(concsstruct.com)</a></h2>
-        <div class="m-body-media-block m-body-media-block--web">
-          <a href="https://www.concsstruct.com" target="_blank"><img src="images/concsstruct.png" alt="ConCSStruct"
-              class="m-portfolio-img--web e-zoom" width="700" height="394"></a>
-          <div class="m-body-txt"><br>
-            <p class="l-justify"><b>ConCSStruct</b> is a coding-based game where users complete construction
-              tasks by coding "blueprints" using HTML and modular CSS class
-              styles. The game is built with a <b>React / Redux</b> state storage system providing real-time updating,
-              game logic and level management.</p><br><br>
-            <p><b>Built with:</b></p>
-            <a href='https://reactjs.org' target="_blank">
-              <img class="e-shrink-3" width="125" alt='React JS' src='images/react.png'>
+    <div id="spacer" class="l-spacer"></div>
+
+    <!--ConCSStruct Project-->
+    <div class="m-body--project-container">
+        <div class="m-body--project-top-gradient"></div>
+        <object data="images/concsstruct-logo--header.svg" class="m-body--project-logo-image" type="image/svg+xml"></object>
+        <div class="m-body--project-content-container"><br>
+            <p class="m-body--project-description-text">A coding-based puzzle game<br>utilizing <b>React & Redux.</b></p><br>
+            <img src="images/concsstruct.png" class="m-body--project-content-image" title="ConCSStruct" width="700" height="394"/><br><br>
+            <div class="m-body--project-content-button-container">
+              <a href="https://www.concsstruct.com" target="_blank" title="View Site">
+                <img src="images/site-logo.png" alt="Web" width="auto" height="100%"/>
+                SITE</a>
+              <a href="https://github.com/nilsberndt/concsstruct" target="_blank" title="View Source">
+                <img src="images/github-logo-white.png" alt="GitHub" width="auto" height="100%"/>
+                SRC</a>
+            </div><br>
+        </div>
+        <div class="m-body--project-tools-container">
+            <h3>BUILT WITH:</h3>
+            <a href="https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5" target="_blank" title="HTML5">
+              <img id="icoHtml1" src="images/html5-logo-white.png" height="30%" width="auto"/>
             </a>
-            <a href='https://redux.js.org' target="_blank">
-              <img class="e-shrink-3" width="150" alt='Redux' src='images/redux.png' />
-            </a><br><br>
+            <a href="https://sass-lang.com" target="_blank" title="SASS">
+              <img id="icoSass" src="images/sass-logo-white.png" height="30%" width="auto"/>
+            </a>
+            <a href="https://www.w3schools.com/Js/js_es6.asp" target="_blank" title="JavaScript ES6">
+              <img id="icoJsEs6" src="images/js-es6-logo-white.png" height="30%" width="auto"/>
+            </a>
+            <a href="https://reactjs.org" target="_blank" title="React.js">
+              <img id="icoReact" src="images/react-logo-white.png" height="30%" width="auto"/>
+            </a>
+            <a href="https://redux.js.org" target="_blank" title="Redux">
+              <img id="icoRedux" src="images/redux-logo-white.png" height="30%" width="auto"/>
+            </a>
+            <a href="https://firebase.google.com" target="_blank" title="Google Firebase">
+              <img id="icoFirebase1" src="images/firebase-logo-white.png" height="30%" width="auto"/>
+            </a>
+        </div>
+        <div class="m-body--project-bottom-gradient"></div>
+    </div>
+
+    <!--10kT Project-->
+    <div class="m-body--project-container">
+        <div class="m-body--project-top-gradient"></div>
+        <object data="images/10kt-logo--header.svg" class="m-body--project-logo-image" type="image/svg+xml"></object>
+        <div class="m-body--project-content-container"><br>
+            <p class="m-body--project-description-text">A cloud text-editing and idea generation<br>platform for <b>Android & Web</b>.</p><br>
+            <img src="images/10kt.png" id="tenKTimg" class="m-body--project-content-image-tenkt" title="10kT"/>
+            <div class="m-body--project-content-button-container">
+              <a href="https://10kt.app" target="_blank" title="View Site">
+                <img src="images/site-logo.png" alt="Web" width="auto" height="100%"/>
+                SITE</a>
+              <a href="https://github.com/nilsberndt/tenkt-app" target="_blank" title="View Source">
+                <img src="images/github-logo-white.png" alt="github" width="auto" height="100%"/>
+                SRC</a>
+            </div><br>
+        </div>
+        <div class="m-body--project-tools-container">
+            <h3>BUILT WITH:</h3>
+            <a href="https://developer.android.com" target="_blank" title="Android Studio">
+              <img id="icoAndroid" src="images/android-logo-white.png"/>
+            </a>
+            <a href="https://www.oracle.com/java" target="_blank" title="Java">
+              <img id="icoJava" src="images/java-logo-white.png"/>
+            </a>
+            <a href="https://www.w3.org/XML" target="_blank" title="XML">
+              <img id="icoXml" src="images/xml-logo-white.png"/>
+            </a>
+            <a href="https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5" target="_blank" title="HTML5">
+              <img id="icoHtml2" src="images/html5-logo-white.png"/>
+            </a>
+            <a href="https://developer.mozilla.org/bm/docs/Web/JavaScript" target="_blank" title="JavaScript">
+              <img id="icoJs" src="images/js-logo-white.png"/>
+            </a>
+            <a href="https://firebase.google.com" target="_blank" title="Google Firebase">
+              <img id="icoFirebase2" src="images/firebase-logo-white.png"/>
+            </a>
+        </div>
+        <div class="m-body--project-bottom-gradient"></div>
+    </div>
+
+    <!--Page tag for 'DESIGNS'-->
+    <div id="design"></div>
+    <!--Design Work 1-->
+    <div class="m-body--project-container-images">
+        <div class="m-body--project-top-gradient"></div>
+        <div class="m-body--project-logo-image"></div>
+        <div class="m-body--project-content-container"><br><br>
+            <h2 class="m-body--project-description-text">Logo & Brand Design</h2><br>
+            <div class="m-body--project-design-image-container">
+              <img src="images/terrlogo.png" alt="TERR" class="m-portfolio-img--logo">
+              <img src="images/enchantedlogo.png" alt="Enchanted" class="m-portfolio-img--logo">
+              <img src="images/OmmonoSlant.png" alt="OMMONO" class="m-portfolio-img--logo">
+              <img src="images/RPlogo.png" alt="RP Apothecary" class="m-portfolio-img--logo">
+              <img src="images/Berndtlogo.png" alt="Berndt Woodwork" class="m-portfolio-img--logo ">
+              <img src="images/portlandpartylogo.png" alt="Portland Party People" class="m-portfolio-img--logo">
+            </div>
+        </div>
+    </div>
+
+    <!--Design Work 2-->
+    <div class="m-body--project-container-images">
+        <div class="m-body--project-top-gradient"></div>
+        <div class="m-body--project-logo-image"></div>
+        <div class="m-body--project-content-container"><br><br>
+            <h2 class="m-body--project-description-text"><b>Web Layout & Design</b></h2><br>
+            <div class="m-body--project-design-image-container">
+              <img src="images/enchantedsite.jpg" alt="Enchanted DSM" class="m-portfolio-img--web">
+              <img src="images/terrwebsketch.png" alt="TERR Society" class="m-portfolio-img--web">
+              <img src="images/unibernsite.png" alt="Unibern" class="m-portfolio-img--web">
+              <img src="images/berndtwoodweb.jpg" alt="Berndt Woodwork" class="m-portfolio-img--web">
+            </div><br><br>
+        </div>
+        <div class="m-body--project-bottom-gradient"></div>
+    </div>
+
+
+    <!--Page tag for 'SKILLS'-->
+    <div id="skills"></div>
+    <!--Skills & Abilities-->
+    <div class="m-body--project-container-images">
+        <div class="m-body--project-top-gradient"></div>
+        <div class="m-body--project-logo-image"></div>
+        <div class="m-body--project-content-container"><br><br>
+          <h2 class="m-body--project-description-text"><b>Skills & Abilities</b></h2><br>
+          <div class="e-shadow m-cascade--container">
+            <h4 class="m-cascade m-cascade--header">Web Technologies</h4>
+            <ul>
+              <li class="m-cascade m-cascade--1">HTML / CSS / Javascript</li>
+              <li class="m-cascade m-cascade--2">React / Flux / Redux</li>
+              <li class="m-cascade m-cascade--3">Google Firebase / AWS Cloud</li>
+              <li class="m-cascade m-cascade--4">JSON / AJAX / REST API Usage</li>
+              <li class="m-cascade m-cascade--5">Node.js / npm</li>
+            </ul>
+          </div><br><br>
+          <div class="e-shadow m-cascade--container">
+            <h4 class="m-cascade m-cascade--header">Dev Tools</h4>
+            <ul>
+              <li class="m-cascade m-cascade--1"><b>Git:</b> Bash (CLI) / Github / Gitlab</li>
+              <li class="m-cascade m-cascade--2"><b>IDEs:</b> VScode / Sublime / Eclipse / IntelliJ / Notepad++</li>
+              <li class="m-cascade m-cascade--3"><b>Build tools:</b> npm / Gulp / Grunt / React / Firebase</li>
+              <li class="m-cascade m-cascade--4"><b>Bundlers/Modular:</b> SASS, Babel, Handlebars, Browserify</li>
+              <li class="m-cascade m-cascade--5"><b>Test/Debug:</b> ESlint, Jasmine, Mocha, Chrome Devtools</li>
+            </ul>
+          </div><br><br>
+          <div class="e-shadow m-cascade--container">
+            <h4 class="m-cascade m-cascade--header">Graphic / Layout</h4>
+            <ul>
+              <li class="m-cascade m-cascade--1">Adobe Creative Suite</li>
+              <li class="m-cascade m-cascade--2">Inkscape / GIMP</li>
+              <li class="m-cascade m-cascade--3">Blender / SketchUp (3D Modeling)</li>
+              <li class="m-cascade m-cascade--4">Sketch / Balsamiq / other UI/UX Tools</li>
+              <li class="m-cascade m-cascade--5">Google Material Design</li>
+            </ul>
           </div>
         </div>
-      </div>
-
-      <!--10kT-->
-      <div class="e-shadow m-body-container-inner"><br>
-        <h2>10kT <a href="http://10kt.app" target="_blank">(10kt.app)</a></h2>
-        <div class="m-body-media-block m-body-media-block--app">
-          <a href="https://10kt.app" target="_blank"><img src="images/10ktUI.png" alt="10kT App" class="e-zoom m-portfolio-img--app"
-              width="200" height="369"></a>
-          <!--Page tag for nav link-->
-          <div id="design"></div>
-          <div class="m-body-txt"><br>
-            <p class="l-justify"><b>10kT</b> is a dynamic, real-time text editing platform where
-              <b>{wordblock}</b>s can be modified by users from the Android app and viewed live on the web at
-              <b><a href="https://10kt.app" target="_blank">10kt.app</a></b>.
-              Changes are seen immediately across all channels due to a <b>Google Firebase Realtime Database</b>
-              back-end.<br><br>Now in Beta testing on the <b>Google Play Store.</b></p><br>
-            <a href='https://play.google.com/store/apps/details?id=com.nsb.android.a10kt&amp;pcampaignid=MKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1'
-              target="_blank">
-              <img class="e-shrink-3" width="150" alt='Get it on Google Play' src='https://play.google.com/intl/en_us/badges/images/generic/en_badge_web_generic.png'>
-            </a>
-            <a href='https://firebase.google.com' target="_blank">
-              <img class="e-shrink-3" width="150" alt='Built with Firebase' src='https://firebase.google.com/downloads/brand-guidelines/PNG/logo-built_white.png'>
-            </a><br><br>
-          </div>
-        </div>
-      </div>
     </div>
-    <!--END UI / APP Container-->
 
-    <!--GRAPHIC Container-->
-    <div class="e-shadow m-body-container-outer">
-      <h1>LOGO &amp; BRAND DESIGN</h1><br>
-
-      <div class="e-shadow m-body-container-inner"><br>
-        <img src="images/terrlogo.png" alt="TERR" class="m-portfolio-img--logo e-bounce-float e-bounce-float--1">
-        <img src="images/enchantedlogo.png" alt="Enchanted" class="m-portfolio-img--logo e-bounce-float e-bounce-float--2">
-        <img src="images/OmmonoSlant.png" alt="OMMONO" class="m-portfolio-img--logo e-bounce-float e-bounce-float--3">
-        <img src="images/RPlogo.png" alt="RP Apothecary" class="m-portfolio-img--logo e-bounce-float e-bounce-float--1">
-        <img src="images/Berndtlogo.png" alt="Berndt Woodwork" class="m-portfolio-img--logo e-bounce-float e-bounce-float--2">
-        <img src="images/10kTlogo.png" alt="10kT" class="m-portfolio-img--logo e-bounce-float e-bounce-float--3">
-        <img src="images/portlandpartylogo.png" alt="Portland Party People" class="m-portfolio-img--logo e-bounce-float e-bounce-float--1"><br><br>
-      </div>
-    </div>
-    <!--END GRAPHIC Container-->
-
-    <!--WEB Container-->
-    <div class="e-shadow m-body-container-outer">
-      <h1>WEB DESIGN</h1><br>
-
-      <div class="e-shadow m-body-container-inner">
-        <img src="images/unibernsite.png" alt="Unibern" class="m-portfolio-img--web e-zoom">
-        <img src="images/enchantedsite.jpg" alt="Enchanted DSM" class="m-portfolio-img--web e-zoom">
-        <img src="images/terrwebsketch.png" alt="TERR Society" class="m-portfolio-img--web e-zoom">
-        <img src="images/berndtwoodweb.jpg" alt="Berndt Woodwork" class="m-portfolio-img--web e-zoom">
-        <!--Page tag for nav link-->
-        <div id="skills"></div>
-      </div>
-    </div>
-    <!--END WEB Container-->
-
-    <!--SKILLS Container-->
-    <div class="e-shadow m-body-container-outer">
-      <h1>SKILLS & ABILITIES</h1><br>
-      <div class="e-shadow m-cascade--container">
-        <h3 class="m-cascade m-cascade--header">Web Technologies</h3>
-        <ul>
-          <li class="m-cascade m-cascade--1">HTML / CSS / Javascript</li>
-          <li class="m-cascade m-cascade--2">React / Flux / Redux</li>
-          <li class="m-cascade m-cascade--3">Google Firebase / AWS Cloud</li>
-          <li class="m-cascade m-cascade--4">JSON / AJAX / REST API Usage</li>
-          <li class="m-cascade m-cascade--5">Node.js / npm</li>
-        </ul>
-      </div>
-
-      <div class="e-shadow m-cascade--container">
-        <h3 class="m-cascade m-cascade--header">Dev Tools</h3>
-        <ul>
-          <li class="m-cascade m-cascade--1"><b>Git:</b> Bash (CLI) / Github / Gitlab</li>
-          <li class="m-cascade m-cascade--2"><b>IDEs:</b> VScode / Sublime / Eclipse / IntelliJ / Notepad++</li>
-          <li class="m-cascade m-cascade--3"><b>Build tools:</b> npm / Gulp / Grunt / React / Firebase</li>
-          <li class="m-cascade m-cascade--4"><b>Bundlers/Modular:</b> SASS, Babel, Handlebars, Browserify</li>
-          <li class="m-cascade m-cascade--5"><b>Cleaning/Testing:</b> ESlint, Jasmine, Mocha, Chrome Devtools</li>
-        </ul>
-      </div>
-
-      <div class="e-shadow m-cascade--container">
-        <h3 class="m-cascade m-cascade--header">Graphic / Layout</h3>
-        <ul>
-          <li class="m-cascade m-cascade--1">Adobe Creative Suite</li>
-          <li class="m-cascade m-cascade--2">Inkscape / GIMP</li>
-          <li class="m-cascade m-cascade--3">Blender / SketchUp (3D Modeling)</li>
-          <li class="m-cascade m-cascade--4">Sketch / Balsamiq / other UI/UX Tools</li>
-          <li class="m-cascade m-cascade--5">Google Material Design</li>
-        </ul>
-      </div><br>
-    </div>
-    <!--END SKILLS Container-->
-  </div><br><br>
+  </div><br><br><br>
 
   <footer class="m-footer">
-    <h5>&#169;2019 NILS BERNDT - ALL RIGHTS RESERVED - ALL CONTENT ORIGINAL |
-      <a id="footerContact" class="m-footer-mail" href="javascript:;">CONTACT ME</a> | 
-      <a class="m-footer-mail" href="https://github.com/nilsberndt/"> VISIT MY GitHub</a></h5>
-    <h5>This page achieves a 95+/100 score on Google's
-      <a class="m-footer-mail" 
-        href="https://developers.google.com/speed/pagespeed/insights/?url=https%3A%2F%2Fwww.nilsberndt.com%2F"> PageSpeed Insights
-      </a>
-    </h5>
+    <a href="https://github.com/nilsberndt/" target="_blank">
+      <img class="e-shrink-3" id="icoGithub" src="images/github-logo-white-large.png" width="40" height="auto"/>
+    </a>
+    <img class="e-shrink-3" id="icoContact" src="images/contact-logo-white.png" width="40" height="auto"/><br><br>
+    <h5>&#169;2019 NILS BERNDT - ALL RIGHTS RESERVED - PAGE DESIGN & ALL CONTENT ORIGINAL</h5>
   </footer>
 
-  <!--Terminal 'easter egg' script-->
-  <script src="scripts/terminal.js"></script>
   <!--Site JS-->
   <script src="scripts/index.js"></script>
+  <!--Terminal 'easter egg' script-->
+  <script src="scripts/terminal.js"></script>
+
 
 </body>
 
