@@ -25,6 +25,20 @@ Thanks for looking!-->
   <link rel="manifest" href="images/site.webmanifest">
   <link rel="mask-icon" href="images/safari-pinned-tab.svg" color="#5bbad5">
   <link rel="shortcut icon" href="images/favicon.ico">
+
+  <link rel="preload" href="images/html5-logo-color.png" as="image">
+  <link rel="preload" href="images/sass-logo-color.png" as="image">
+  <link rel="preload" href="images/js-es6-logo-color.png" as="image">
+  <link rel="preload" href="images/react-logo-color.png" as="image">
+  <link rel="preload" href="images/redux-logo-color.png" as="image">
+  <link rel="preload" href="images/firebase-logo-color.png" as="image">
+  <link rel="preload" href="images/android-logo-color.png" as="image">
+  <link rel="preload" href="images/java-logo-color.png" as="image">
+  <link rel="preload" href="images/xml-logo-color.png" as="image">
+  <link rel="preload" href="images/js-logo-color.png" as="image">
+  <link rel="preload" href="images/github-logo-color-large.png" as="image">
+  <link rel="preload" href="images/contact-logo-color.png" as="image">
+
   <meta name="msapplication-TileColor" content="#da532c">
   <meta name="msapplication-config" content="images/browserconfig.xml">
   <meta name="theme-color" content="#ffffff">
@@ -74,18 +88,31 @@ Thanks for looking!-->
       <div class="m-header">
         <object data="images/header-logo.svg" class="m-header--logo-svg" type="image/svg+xml"></object>
         <ul class="m-nav-container">
-          <li class="m-nav-item m-nav-item--1 e-shrink-1"><a href="#">PROJECTS</a></li>
-          <li class="m-nav-item m-nav-item--2 e-shrink-2"><a href="#design">DESIGNS</a></li>
-          <li class="m-nav-item m-nav-item--3 e-shrink-1"><a href="#skills">SKILLS</a></li>
+          <li class="m-nav-item m-nav-item--1 e-shrink-1"><a href="#design">PROJECTS</a></li>
+          <li class="m-nav-item m-nav-item--2 e-shrink-2"><a href="#skills">SKILLS</a></li>
+          <li class="m-nav-item m-nav-item--3 e-shrink-1"><a href="#">ETC</a></li>
         </ul>
       </div>
     </header>
 
-    <!--'darkens' bg when contact form is opened-->
+    <!--dark bg when contact modal is opened-->
     <div id="darkdiv" class="e-darken"></div>
 
 
     <div id="spacer" class="l-spacer"></div>
+
+    <!--About Section-->
+    <div class="m-body--project-container">
+      <div class="m-body--project-top-gradient" style="visibility: hidden"></div>
+      <div class="m-body--project-content-container">
+          <h2 class="m-body--project-description-text"></h2><br/>
+          <p class="m-body--project-description-text">
+            Hello! I'm a <b>jack-of-all-trades full-stack developer</b><br/>
+            with a creative passion for good design and code.</b><br/>
+          </p><br/>
+          <h2 class="m-body--project-description-text"></h2><br/>
+      </div><br/><br/><br/>
+  </div>
 
     <!--ConCSStruct Project-->
     <div class="m-body--project-container">
@@ -93,7 +120,7 @@ Thanks for looking!-->
         <object data="images/concsstruct-logo--header.svg" class="m-body--project-logo-image" type="image/svg+xml"></object>
         <div class="m-body--project-content-container"><br>
             <p class="m-body--project-description-text">A coding-based puzzle game<br>utilizing <b>React & Redux.</b></p><br>
-            <img src="images/concsstruct.png" class="m-body--project-content-image" title="ConCSStruct" width="700" height="394"/><br><br>
+            <a href="https://www.concsstruct.com" target="_blank" title="View Site"><img src="images/concsstruct.png" class="m-body--project-content-image" title="ConCSStruct" width="700" height="394"/></a><br><br>
             <div class="m-body--project-content-button-container">
               <a href="https://www.concsstruct.com" target="_blank" title="View Site">
                 <img src="images/site-logo.png" alt="Web" width="auto" height="100%"/>
@@ -133,7 +160,7 @@ Thanks for looking!-->
         <object data="images/10kt-logo--header.svg" class="m-body--project-logo-image" type="image/svg+xml"></object>
         <div class="m-body--project-content-container"><br>
             <p class="m-body--project-description-text">A cloud text-editing and<br>idea-generation platform<br>for <b>Android Mobile & Web</b>.</p><br>
-            <img src="images/10kt.png" id="tenKTimg" class="m-body--project-content-image-tenkt" title="10kT"/>
+            <a href="https://10kt.app" target="_blank" title="View Site"><img src="images/10kt.png" id="tenKTimg" class="m-body--project-content-image-tenkt" title="10kT"/></a>
             <div class="m-body--project-content-button-container">
               <a href="https://10kt.app" target="_blank" title="View Site">
                 <img src="images/site-logo.png" alt="Web" width="auto" height="100%"/>
@@ -167,42 +194,6 @@ Thanks for looking!-->
         <div class="m-body--project-bottom-gradient"></div>
     </div>
 
-    <!--Page tag for 'DESIGNS'-->
-    <div id="design"></div>
-    <!--Design Work 1-->
-    <div class="m-body--project-container-images">
-        <div class="m-body--project-top-gradient"></div>
-        <div class="m-body--project-logo-image"></div>
-        <div class="m-body--project-content-container"><br><br>
-            <h2 class="m-body--project-description-text">LOGO & BRAND DESIGN</h2><br>
-            <div class="m-body--project-design-image-container">
-              <img src="images/terrlogo.png" alt="TERR" class="m-portfolio-img--logo">
-              <img src="images/enchantedlogo.png" alt="Enchanted" class="m-portfolio-img--logo">
-              <img src="images/OmmonoSlant.png" alt="OMMONO" class="m-portfolio-img--logo">
-              <img src="images/RPlogo.png" alt="RP Apothecary" class="m-portfolio-img--logo">
-              <img src="images/Berndtlogo.png" alt="Berndt Woodwork" class="m-portfolio-img--logo ">
-              <img src="images/portlandpartylogo.png" alt="Portland Party People" class="m-portfolio-img--logo">
-            </div>
-        </div>
-    </div>
-
-    <!--Design Work 2-->
-    <div class="m-body--project-container-images">
-        <div class="m-body--project-top-gradient"></div>
-        <div class="m-body--project-logo-image"></div>
-        <div class="m-body--project-content-container"><br><br>
-            <h2 class="m-body--project-description-text"><b>WEB LAYOUT & DESIGN</b></h2><br>
-            <div class="m-body--project-design-image-container">
-              <img src="images/enchantedsite.jpg" alt="Enchanted DSM" class="m-portfolio-img--web">
-              <img src="images/terrwebsketch.png" alt="TERR Society" class="m-portfolio-img--web">
-              <img src="images/unibernsite.png" alt="Unibern" class="m-portfolio-img--web">
-              <img src="images/berndtwoodweb.jpg" alt="Berndt Woodwork" class="m-portfolio-img--web">
-            </div><br><br>
-        </div>
-        <div class="m-body--project-bottom-gradient"></div>
-    </div>
-
-
     <!--Page tag for 'SKILLS'-->
     <div id="skills"></div>
     <!--Skills & Abilities-->
@@ -212,23 +203,33 @@ Thanks for looking!-->
         <div class="m-body--project-content-container"><br><br>
           <h2 class="m-body--project-description-text"><b>TECHNICAL SKILLS</b></h2><br>
           <div class="e-shadow m-cascade--container">
-            <h4 class="m-cascade m-cascade--header">Languages & Technologies</h4>
+            <h4 class="m-cascade m-cascade--header">Front End</h4>
             <ul>
               <li class="m-cascade m-cascade--1">HTML / CSS / Javascript / Java / C#</li>
-              <li class="m-cascade m-cascade--2">React / Flux / Redux</li>
-              <li class="m-cascade m-cascade--3">Google Firebase / AWS Cloud</li>
-              <li class="m-cascade m-cascade--4">JSON / AJAX / REST API Usage</li>
-              <li class="m-cascade m-cascade--5">Node.js / npm</li>
+              <li class="m-cascade m-cascade--2">React / Redux / Flux / Additional JS Frameworks</li>
+              <li class="m-cascade m-cascade--3">Mobile / Responsive Design</li>
+              <li class="m-cascade m-cascade--4">CMS Integration & Development (Wordpress etc.)</li>
+              <li class="m-cascade m-cascade--5">Bootstrap / Material / React UI Libraries</li>
+            </ul>
+          </div><br><br>
+          <div class="e-shadow m-cascade--container">
+            <h4 class="m-cascade m-cascade--header">Back End</h4>
+            <ul>
+              <li class="m-cascade m-cascade--1">Node.js / npm</li>
+              <li class="m-cascade m-cascade--2">API Integrations with REST, GraphQL, gRPC Endpoints</li>
+              <li class="m-cascade m-cascade--3">Google Cloud / AWS / IBM Cloud (Serverless)</li>
+              <li class="m-cascade m-cascade--4">SQL / NoSQL / GraphQL / FQL Etc. </li>
+              <li class="m-cascade m-cascade--5">MongoDB / MySQL / Additional DBA</li>
             </ul>
           </div><br><br>
           <div class="e-shadow m-cascade--container">
             <h4 class="m-cascade m-cascade--header">Development Tools</h4>
             <ul>
-              <li class="m-cascade m-cascade--1"><b>Git:</b> Bash (CLI) / Github / Gitlab</li>
+              <li class="m-cascade m-cascade--1"><b>Version Control:</b> Git Bash CLI / Github / Gitlab</li>
               <li class="m-cascade m-cascade--2"><b>IDEs:</b> VScode / Sublime / Eclipse / IntelliJ / Notepad++</li>
-              <li class="m-cascade m-cascade--3"><b>Build tools:</b> npm / Gulp / Grunt / React / Firebase</li>
-              <li class="m-cascade m-cascade--4"><b>Bundlers/Modular:</b> SASS, Babel, Handlebars, Browserify</li>
-              <li class="m-cascade m-cascade--5"><b>Test/Debug:</b> ESlint, Jasmine, Mocha, Chrome Devtools</li>
+              <li class="m-cascade m-cascade--3"><b>CI/CD:</b> Wercker / Travis / Circle</li>
+              <li class="m-cascade m-cascade--4"><b>Bundlers/Modular:</b> Webpack, SASS, Babel, Handlebars, Browserify</li>
+              <li class="m-cascade m-cascade--5"><b>Test/Debug/Clean:</b> Jest, Jasmine, Mocha, ESLint, Chrome Devtools</li>
             </ul>
           </div><br><br>
           <div class="e-shadow m-cascade--container">
@@ -251,7 +252,7 @@ Thanks for looking!-->
       <img class="e-shrink-3" id="icoGithub" src="images/github-logo-white-large.png" width="40" height="auto"/>
     </a>
     <img class="e-shrink-3" id="icoContact" src="images/contact-logo-white.png" width="40" height="auto"/><br><br>
-    <h5>&#169;2019 NILS BERNDT - ALL RIGHTS RESERVED - PAGE DESIGN & ALL CONTENT ORIGINAL</h5>
+    <h5>&#169;2020 NILS BERNDT - ALL RIGHTS RESERVED - PAGE DESIGN & ALL CONTENT ORIGINAL</h5>
   </footer>
 
   <!--Site JS-->
