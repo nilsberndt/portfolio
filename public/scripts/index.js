@@ -13,6 +13,11 @@ document.getElementById("icoHtml2").addEventListener("mouseover",
 document.getElementById("icoHtml2").addEventListener("mouseout",
   function () { changeImage('icoHtml2', 'images/html5-logo-white.png') });
 
+document.getElementById("icoHtml3").addEventListener("mouseover",
+  function () { changeImage('icoHtml3', 'images/html5-logo-color.png') });
+document.getElementById("icoHtml3").addEventListener("mouseout",
+  function () { changeImage('icoHtml3', 'images/html5-logo-white.png') });
+
 document.getElementById("icoFirebase1").addEventListener("mouseover",
   function () { changeImage('icoFirebase1', 'images/firebase-logo-color.png') });
 document.getElementById("icoFirebase1").addEventListener("mouseout",
@@ -23,25 +28,50 @@ document.getElementById("icoFirebase2").addEventListener("mouseover",
 document.getElementById("icoFirebase2").addEventListener("mouseout",
   function () { changeImage('icoFirebase2', 'images/firebase-logo-white.png') });
 
+document.getElementById("icoFirebase3").addEventListener("mouseover",
+  function () { changeImage('icoFirebase3', 'images/firebase-logo-color.png') });
+document.getElementById("icoFirebase3").addEventListener("mouseout",
+  function () { changeImage('icoFirebase3', 'images/firebase-logo-white.png') });
+
 document.getElementById("icoSass").addEventListener("mouseover",
   function () { changeImage('icoSass', 'images/sass-logo-color.png') });
 document.getElementById("icoSass").addEventListener("mouseout",
   function () { changeImage('icoSass', 'images/sass-logo-white.png') });
+
+document.getElementById("icoChartJS").addEventListener("mouseover",
+  function () { changeImage('icoChartJS', 'images/chartjs-logo-color.png') });
+document.getElementById("icoChartJS").addEventListener("mouseout",
+  function () { changeImage('icoChartJS', 'images/chartjs-logo-white.png') });
 
 document.getElementById("icoJsEs6").addEventListener("mouseover",
   function () { changeImage('icoJsEs6', 'images/js-es6-logo-color.png') });
 document.getElementById("icoJsEs6").addEventListener("mouseout",
   function () { changeImage('icoJsEs6', 'images/js-es6-logo-white.png') });
 
+document.getElementById("icoJsEs62").addEventListener("mouseover",
+  function () { changeImage('icoJsEs62', 'images/js-es6-logo-color.png') });
+document.getElementById("icoJsEs62").addEventListener("mouseout",
+  function () { changeImage('icoJsEs62', 'images/js-es6-logo-white.png') });
+
 document.getElementById("icoReact").addEventListener("mouseover",
   function () { changeImage('icoReact', 'images/react-logo-color.png') });
 document.getElementById("icoReact").addEventListener("mouseout",
   function () { changeImage('icoReact', 'images/react-logo-white.png') });
 
+document.getElementById("icoReact2").addEventListener("mouseover",
+  function () { changeImage('icoReact2', 'images/react-logo-color.png') });
+document.getElementById("icoReact2").addEventListener("mouseout",
+  function () { changeImage('icoReact2', 'images/react-logo-white.png') });
+
 document.getElementById("icoRedux").addEventListener("mouseover",
   function () { changeImage('icoRedux', 'images/redux-logo-color.png') });
 document.getElementById("icoRedux").addEventListener("mouseout",
   function () { changeImage('icoRedux', 'images/redux-logo-white.png') });
+
+document.getElementById("icoCloudFunctions").addEventListener("mouseover",
+  function () { changeImage('icoCloudFunctions', 'images/cloudfunctions-logo-color.png') });
+document.getElementById("icoCloudFunctions").addEventListener("mouseout",
+  function () { changeImage('icoCloudFunctions', 'images/cloudfunctions-logo-white.png') });
 
 document.getElementById("icoAndroid").addEventListener("mouseover",
   function () { changeImage('icoAndroid', 'images/android-logo-color.png') });

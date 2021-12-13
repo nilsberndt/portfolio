@@ -267,7 +267,7 @@ button[type="submit"]{
   font-family: "Josefin Sans",sans-serif;
   font-size: calc(1.4vw + 1.4vh);
   letter-spacing: .1rem;
-  border: 0.15em solid #64932b;
+  border: 0.15em solid #e44722;
   box-shadow: 0 0.2em 0.5em -0.1em #00000060;
 }
 
