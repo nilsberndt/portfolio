@@ -263,12 +263,13 @@ button[type="submit"]{
 .m-body--project-spotvspremium-logo{
   background-color: white;
   color: #4f4f4f;
-  padding: calc(1.4vw + 1.4vh);;
+  padding: calc(1.4vw + 1.4vh);
   font-family: "Josefin Sans",sans-serif;
   font-size: calc(1.4vw + 1.4vh);
   letter-spacing: .1rem;
   border: 0.15em solid #e44722;
   box-shadow: 0 0.2em 0.5em -0.1em #00000060;
+  max-width: 50%;
 }
 
 .m-body--project-design-image-container{
@@ -309,8 +310,9 @@ h2.m-body--project-description-text{
   font-size: calc(2vh + 2vw);
   font-weight: 700;
   border-image: linear-gradient(90deg, transparent,transparent, #495d53,transparent, transparent);
-  border-image-slice: 1;
+  border-image-slice: 0 0 1 0;
   border-bottom: solid 0.1em;
+  border-top: none;
 }
 
 .m-body--project-content-image{
@@ -409,7 +411,7 @@ h2.m-body--project-description-text{
   transform: skewY(-4deg) translateY(2em);
   color: white;
   border-image: linear-gradient(90deg, transparent,transparent, #495d53,transparent, transparent);
-  border-image-slice: 1;
+  border-image-slice: 0 0 1 0;
   border-bottom: solid 0.1em;
 }
 
@@ -417,7 +419,7 @@ h2.m-body--project-description-text{
   transform: skewY(4deg) translateY(2em);
   color: white;
   border-image: linear-gradient(90deg, transparent,transparent, #495d53,transparent, transparent);
-  border-image-slice: 1;
+  border-image-slice: 0 0 1 0;
   border-bottom: solid 0.1em;
 }
 
@@ -769,6 +771,7 @@ input.m-bash-input[type='text'] {
 	font-weight: bold;
   font-family: monospace;
   font-size: calc(0.75vh + 0.75vw);
+  outline: none;
 }
 
 /* effects (e) styles */
@@ -985,6 +988,11 @@ e-black{
     max-width: 20vw;
   }
 
+  .m-body--project-spotvspremium-logo{
+    padding: calc(1vw + 1vh);
+    font-size: calc(1vw + 1vh);
+  }
+
   .m-body--project-logo-image-spotvspremium{
     height: auto;
     max-width: 25vw;
@@ -1066,6 +1074,18 @@ e-black{
     max-height: 40%;
     padding: 2em;
 	}
+}
+
+@media (max-height: 400px) and (orientation: landscape) {
+  .m-header {
+    max-height: 15vh;
+  }
+
+  .m-header--logo-svg{
+    width: auto;
+    max-height: 15vh;
+    padding: 0.5em;
+  }
 }
 
 
