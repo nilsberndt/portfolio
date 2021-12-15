@@ -1,97 +1,36 @@
+const icoMap = {
+  'icoHtml1': 'html5',
+  'icoHtml2': 'html5',
+  'icoHtml3': 'html5',
+  'icoFirebase1': 'firebase',
+  'icoFirebase2': 'firebase',
+  'icoFirebase3': 'firebase',
+  'icoSass': 'sass',
+  'icoChartJS': 'chartjs',
+  'icoJsEs61': 'js-es6',
+  'icoJsEs62': 'js-es6',
+  'icoReact1': 'react',
+  'icoReact2': 'react',
+  'icoRedux': 'redux',
+  'icoCloudFunctions': 'cloudfunctions',
+  'icoAndroid': 'android',
+  'icoJava': 'java',
+  'icoJs': 'js',
+  'icoXml': 'xml',
+}
+
+Object.keys(icoMap).map(icoKey => {
+  const icoElem = document.getElementById(icoKey)
+  const icoVal = icoMap[icoKey]
+  icoElem.addEventListener('mouseover', () => changeImage(icoKey, `images/${icoVal}-logo-color.png`))
+  icoElem.addEventListener('mouseout', () => changeImage(icoKey, `images/${icoVal}-logo-white.png`))
+})
+
+
 
 document.getElementById("darkdiv").addEventListener("click", closeContact);
 document.getElementById("cancel").addEventListener("click", closeContact);
 document.getElementById("form1").addEventListener("submit", sendMessage);
-
-document.getElementById("icoHtml1").addEventListener("mouseover",
-  function () { changeImage('icoHtml1', 'images/html5-logo-color.png') });
-document.getElementById("icoHtml1").addEventListener("mouseout",
-  function () { changeImage('icoHtml1', 'images/html5-logo-white.png') });
-
-document.getElementById("icoHtml2").addEventListener("mouseover",
-  function () { changeImage('icoHtml2', 'images/html5-logo-color.png') });
-document.getElementById("icoHtml2").addEventListener("mouseout",
-  function () { changeImage('icoHtml2', 'images/html5-logo-white.png') });
-
-document.getElementById("icoHtml3").addEventListener("mouseover",
-  function () { changeImage('icoHtml3', 'images/html5-logo-color.png') });
-document.getElementById("icoHtml3").addEventListener("mouseout",
-  function () { changeImage('icoHtml3', 'images/html5-logo-white.png') });
-
-document.getElementById("icoFirebase1").addEventListener("mouseover",
-  function () { changeImage('icoFirebase1', 'images/firebase-logo-color.png') });
-document.getElementById("icoFirebase1").addEventListener("mouseout",
-  function () { changeImage('icoFirebase1', 'images/firebase-logo-white.png') });
-
-document.getElementById("icoFirebase2").addEventListener("mouseover",
-  function () { changeImage('icoFirebase2', 'images/firebase-logo-color.png') });
-document.getElementById("icoFirebase2").addEventListener("mouseout",
-  function () { changeImage('icoFirebase2', 'images/firebase-logo-white.png') });
-
-document.getElementById("icoFirebase3").addEventListener("mouseover",
-  function () { changeImage('icoFirebase3', 'images/firebase-logo-color.png') });
-document.getElementById("icoFirebase3").addEventListener("mouseout",
-  function () { changeImage('icoFirebase3', 'images/firebase-logo-white.png') });
-
-document.getElementById("icoSass").addEventListener("mouseover",
-  function () { changeImage('icoSass', 'images/sass-logo-color.png') });
-document.getElementById("icoSass").addEventListener("mouseout",
-  function () { changeImage('icoSass', 'images/sass-logo-white.png') });
-
-document.getElementById("icoChartJS").addEventListener("mouseover",
-  function () { changeImage('icoChartJS', 'images/chartjs-logo-color.png') });
-document.getElementById("icoChartJS").addEventListener("mouseout",
-  function () { changeImage('icoChartJS', 'images/chartjs-logo-white.png') });
-
-document.getElementById("icoJsEs6").addEventListener("mouseover",
-  function () { changeImage('icoJsEs6', 'images/js-es6-logo-color.png') });
-document.getElementById("icoJsEs6").addEventListener("mouseout",
-  function () { changeImage('icoJsEs6', 'images/js-es6-logo-white.png') });
-
-document.getElementById("icoJsEs62").addEventListener("mouseover",
-  function () { changeImage('icoJsEs62', 'images/js-es6-logo-color.png') });
-document.getElementById("icoJsEs62").addEventListener("mouseout",
-  function () { changeImage('icoJsEs62', 'images/js-es6-logo-white.png') });
-
-document.getElementById("icoReact").addEventListener("mouseover",
-  function () { changeImage('icoReact', 'images/react-logo-color.png') });
-document.getElementById("icoReact").addEventListener("mouseout",
-  function () { changeImage('icoReact', 'images/react-logo-white.png') });
-
-document.getElementById("icoReact2").addEventListener("mouseover",
-  function () { changeImage('icoReact2', 'images/react-logo-color.png') });
-document.getElementById("icoReact2").addEventListener("mouseout",
-  function () { changeImage('icoReact2', 'images/react-logo-white.png') });
-
-document.getElementById("icoRedux").addEventListener("mouseover",
-  function () { changeImage('icoRedux', 'images/redux-logo-color.png') });
-document.getElementById("icoRedux").addEventListener("mouseout",
-  function () { changeImage('icoRedux', 'images/redux-logo-white.png') });
-
-document.getElementById("icoCloudFunctions").addEventListener("mouseover",
-  function () { changeImage('icoCloudFunctions', 'images/cloudfunctions-logo-color.png') });
-document.getElementById("icoCloudFunctions").addEventListener("mouseout",
-  function () { changeImage('icoCloudFunctions', 'images/cloudfunctions-logo-white.png') });
-
-document.getElementById("icoAndroid").addEventListener("mouseover",
-  function () { changeImage('icoAndroid', 'images/android-logo-color.png') });
-document.getElementById("icoAndroid").addEventListener("mouseout",
-  function () { changeImage('icoAndroid', 'images/android-logo-white.png') });
-
-document.getElementById("icoJava").addEventListener("mouseover",
-  function () { changeImage('icoJava', 'images/java-logo-color.png') });
-document.getElementById("icoJava").addEventListener("mouseout",
-  function () { changeImage('icoJava', 'images/java-logo-white.png') });
-
-document.getElementById("icoJs").addEventListener("mouseover",
-  function () { changeImage('icoJs', 'images/js-logo-color.png') });
-document.getElementById("icoJs").addEventListener("mouseout",
-  function () { changeImage('icoJs', 'images/js-logo-white.png') });
-
-document.getElementById("icoXml").addEventListener("mouseover",
-  function () { changeImage('icoXml', 'images/xml-logo-color.png') });
-document.getElementById("icoXml").addEventListener("mouseout",
-  function () { changeImage('icoXml', 'images/xml-logo-white.png') });
 
 document.getElementById("icoGithub").addEventListener("mouseover",
   function () { changeImage('icoGithub', 'images/github-logo-color-large.png') });
