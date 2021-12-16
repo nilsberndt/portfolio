@@ -1,3 +1,5 @@
+
+// Icon names to file names map
 const icoMap = {
   'icoHtml1': 'html5',
   'icoHtml2': 'html5',
@@ -17,179 +19,190 @@ const icoMap = {
   'icoJava': 'java',
   'icoJs': 'js',
   'icoXml': 'xml',
+  'icoGithub': 'github2',
+  'icoContact': 'contact',
 }
 
-Object.keys(icoMap).map(icoKey => {
-  const icoElem = document.getElementById(icoKey)
-  const icoVal = icoMap[icoKey]
-  icoElem.addEventListener('mouseover', () => changeImage(icoKey, `images/${icoVal}-logo-color.png`))
-  icoElem.addEventListener('mouseout', () => changeImage(icoKey, `images/${icoVal}-logo-white.png`))
-})
+// Set state stuff for the header animation
+let coffeeFull = true
+let monitor1power = true
+let monitor2power = true
+let mouseGoing = true
+
+// 'Terminal' closed by default
+localStorage.isTerminalOpen = "false" // Note: localStorage cannot use true boolean values, thus the string
 
 
+const initPage = () => {
+  // Initialize Firebase
+  const firebaseConfig = {
+    apiKey: "AIzaSyB2Kn8Cv1Y8MUgR6m-0oCpo-vKvFAZnxHE", // Don't worry, this doesn't need to be private
+    authDomain: "portfolio-12beb.firebaseapp.com",
+    databaseURL: "https://portfolio-12beb.firebaseio.com",
+    projectId: "portfolio-12beb",
+    storageBucket: "portfolio-12beb.appspot.com",
+    messagingSenderId: "598758145112"
+  }
 
-document.getElementById("darkdiv").addEventListener("click", closeContact);
-document.getElementById("cancel").addEventListener("click", closeContact);
-document.getElementById("form1").addEventListener("submit", sendMessage);
+  firebase.initializeApp(firebaseConfig)
 
-document.getElementById("icoGithub").addEventListener("mouseover",
-  function () { changeImage('icoGithub', 'images/github-logo-color-large.png') });
-document.getElementById("icoGithub").addEventListener("mouseout",
-  function () { changeImage('icoGithub', 'images/github-logo-white-large.png') });
+  // Iterate over map of icons and add event listeners for mouseover/mouseout icon color changes
+  Object.keys(icoMap).map(icoKey => {
+    const icoElem = document.getElementById(icoKey)
+    const icoVal = icoMap[icoKey]
+    icoElem.addEventListener('mouseover', () => changeImage(icoKey, `images/${icoVal}-logo-color.png`))
+    icoElem.addEventListener('mouseout', () => changeImage(icoKey, `images/${icoVal}-logo-white.png`))
+  })
 
-document.getElementById("icoContact").addEventListener("mouseover",
-  function () { changeImage('icoContact', 'images/contact-logo-color.png') });
-document.getElementById("icoContact").addEventListener("mouseout",
-  function () { changeImage('icoContact', 'images/contact-logo-white.png') });
-document.getElementById("icoContact").addEventListener("click", showContact);
+  // Set additional page event listeners
+  getAndSetEvent('darkdiv', 'click', closeContact)
+  getAndSetEvent('cancel', 'click', closeContact)
+  getAndSetEvent('form1', 'submit', sendMessage)
+  getAndSetEvent('icoContact', 'click', showContact)
 
-var coffeefull = true;
-var monitor1power = true;
-var monitor2power = true;
-var mousegoing = true;
-localStorage.terminalopen = "false";
+  // Set header animation event listeners
+  const headerSVG = document.querySelector(".m-header--logo-svg")
+  headerSVG.addEventListener("load", () => {
+    const svgDoc = headerSVG.contentDocument
+    const namebadge = svgDoc.getElementById("namebadge")
+    const keyboard = svgDoc.getElementById("keyboard")
+    const coffeecup = svgDoc.getElementById("coffeecup")
+    const coffeeliquid = svgDoc.getElementById("coffeeliquid")
+    const coffeesteam = svgDoc.getElementById("coffeesteam")
+    const alltext = svgDoc.getElementById("alltext")
+    const monitor2 = svgDoc.getElementById("monitor2")
+    const alldesign = svgDoc.getElementById("alldesign")
+    const monitor1 = svgDoc.getElementById("monitor1")
+    const mouse = svgDoc.getElementById("mouse")
+    const coffeespill = svgDoc.getElementById("coffeespill")
+  
+    namebadge.addEventListener("click", () => showContact())
+    keyboard.addEventListener("click", () => checkTerminal())
+    coffeecup.addEventListener("click", () => drinkCoffee(coffeeliquid, coffeesteam, coffeespill))
+    monitor2.addEventListener("click", () => powerMonitor2(alltext))
+    monitor1.addEventListener("click", () => powerMonitor1(alldesign))
+    mouse.addEventListener("click", () => mouseGo(mouse))
+  
+  })
+  
+  // Close contact window on window changes (probably no longer necessary since no nav menu)
+  window.onhashchange = () => {
+    closeContact()
+  }
+}
 
-// Initialize Firebase
-var config = {
-  apiKey: "AIzaSyB2Kn8Cv1Y8MUgR6m-0oCpo-vKvFAZnxHE",
-  authDomain: "portfolio-12beb.firebaseapp.com",
-  databaseURL: "https://portfolio-12beb.firebaseio.com",
-  projectId: "portfolio-12beb",
-  storageBucket: "portfolio-12beb.appspot.com",
-  messagingSenderId: "598758145112"
-};
-firebase.initializeApp(config);
+const getAndSetEvent = (elementName, eventName, actionName) => {
+  document.getElementById(elementName).addEventListener(eventName, actionName)
+}
 
 
+const sendMessage = () => {
+  // Message data
+  const vname = document.getElementById("vname").value
+  const vphone = document.getElementById("vphone").value
+  const vemail = document.getElementById("vemail").value
+  const vmsg = document.getElementById("vmsg").value
 
+  // DB Path data
+  const nowTime = new Date()
+  const nowYear = nowTime.getFullYear()
+  const nowMonth = nowTime.getMonth() + 1
+  const nowDay = nowTime.getDate()
+  const nowKey = nowTime.getHours() + nowTime.getMilliseconds()
+  const dbPath = `messages/${nowYear}/${nowMonth}/${nowDay}/${nowKey}`
 
-function sendMessage() {
-  var vname = document.getElementById("vname").value;
-  var vphone = document.getElementById("vphone").value;
-  var vemail = document.getElementById("vemail").value;
-  var vmsg = document.getElementById("vmsg").value;
-  var nowtime = new Date();
-
-  firebase.database().ref('messages/' + nowtime.getFullYear() + '/' + (nowtime.getMonth() + 1) + '/' + nowtime.getDate() + '/' + (nowtime.getHours() + nowtime.getMilliseconds())).set({
+  firebase.database().ref(dbPath).set({
     "name": vname,
     "email": vemail,
     "phone": vphone,
     "message": vmsg
-  });
-  window.alert("Thanks, I'll get back to you soon!");
-  closeContact();
+  })
+
+  closeContact()
+
+  // TODO: Find a better way to do this alert
+  window.alert("Thanks, I'll get back to you soon!")
 }
 
 
-
-document.querySelector(".m-header--logo-svg").addEventListener("load", function () {
-  var svgDoc = this.contentDocument;
-  var namebadge = svgDoc.getElementById("namebadge");
-  var keyboard = svgDoc.getElementById("keyboard");
-  var coffeecup = svgDoc.getElementById("coffeecup");
-  var coffeeliquid = svgDoc.getElementById("coffeeliquid");
-  var coffeesteam = svgDoc.getElementById("coffeesteam");
-  var alltext = svgDoc.getElementById("alltext");
-  var monitor2 = svgDoc.getElementById("monitor2");
-  var alldesign = svgDoc.getElementById("alldesign");
-  var monitor1 = svgDoc.getElementById("monitor1");
-  var mouse = svgDoc.getElementById("mouse");
-  var coffeespill = svgDoc.getElementById("coffeespill");
-
-  namebadge.addEventListener("click", function () { showContact(); }, false);
-  keyboard.addEventListener("click", function () { checkTerminal(); }, false);
-  coffeecup.addEventListener("click", function () { drinkCoffee(coffeeliquid, coffeesteam, coffeespill); }, false);
-  monitor2.addEventListener("click", function () { powerMonitor2(alltext); }, false);
-  monitor1.addEventListener("click", function () { powerMonitor1(alldesign); }, false);
-  mouse.addEventListener("click", function () { mouseGo(mouse); }, false);
-
-}, false
-);
-
-
-
-window.onhashchange = function () {
-  closeContact();
-}
-
-function mouseGo(mous) {
-  if (mousegoing) {
-    mous.style.animation = "none";
-    mousegoing = false;
+const mouseGo = (mouse) => {
+  if (mouseGoing) {
+    mouse.style.animation = "none"
+    mouseGoing = false
   } else {
-    mous.style.animation = "move 2.5s infinite";
-    mousegoing = true;
+    mouse.style.animation = "move 2.5s infinite"
+    mouseGoing = true
   }
 }
 
-
-function changeImage(imgId, newImgSrc) {
+const changeImage = (imgId, newImgSrc) => {
   document.getElementById(imgId).src = newImgSrc;
 }
 
-
-
-function checkTerminal() {
-  if (localStorage.terminalopen == "true") {
-    document.querySelector(".m-terminal-container").style.display = "none";
-    document.querySelector(".m-terminal-info").style.display = "none";
-    localStorage.terminalopen = "false";
+const checkTerminal = () => {
+  if (localStorage.isTerminalOpen === "true") {
+    document.querySelector(".m-terminal-container").style.display = "none"
+    document.querySelector(".m-terminal-info").style.display = "none"
+    localStorage.isTerminalOpen = "false"
   } else {
-    showTerminal();
-    localStorage.terminalopen = "true";
+    showTerminal()
+    localStorage.isTerminalOpen = "true"
   }
 }
 
-function powerMonitor1(thedesign) {
+const powerMonitor1 = (theDesign) => {
   if (monitor1power) {
-    thedesign.style.opacity = "0";
+    theDesign.style.opacity = "0";
     monitor1power = false;
   } else {
-    thedesign.style.opacity = "1";
+    theDesign.style.opacity = "1";
     monitor1power = true;
   }
 }
 
-function powerMonitor2(thetext) {
+const powerMonitor2 = (theText) => {
   if (monitor2power) {
-    thetext.style.opacity = "0";
+    theText.style.opacity = "0";
     monitor2power = false;
   } else {
-    thetext.style.opacity = "1";
+    theText.style.opacity = "1";
     monitor2power = true;
   }
 }
 
-function drinkCoffee(liquid, steam, spill) {
-  if (coffeefull) {
+const drinkCoffee = (liquid, steam, spill) => {
+  if (coffeeFull) {
     liquid.style.opacity = "0";
     spill.style.visibility = "visible";
     steam.style.visibility = "hidden";
-    coffeefull = false;
+    coffeeFull = false;
   } else {
     liquid.style.opacity = "1";
     spill.style.visibility = "hidden";
     steam.style.visibility = "visible";
-    coffeefull = true;
+    coffeeFull = true;
   }
 }
 
-function showContact() {
-  var elem = document.getElementById("contactform");
-  elem.style.display = "block";
+const showContact = () => {
+  const elem = document.getElementById("contactform")
+  elem.style.display = "block"
 
-  var dark = document.getElementById("darkdiv");
-  dark.style.zIndex = "7";
-  dark.style.opacity = "0.5";
-  dark.style.className = "fadein darken";
+  const dark = document.getElementById("darkdiv")
+  dark.style.zIndex = "7"
+  dark.style.opacity = "0.5"
+  dark.style.className = "fadein darken"
+}
+
+const closeContact = () => {
+  const elem = document.getElementById("contactform")
+  elem.style.display = "none"
+  document.getElementById("form1").reset()
+
+  const dark = document.getElementById("darkdiv")
+  dark.style.zIndex = "-1"
+  dark.style.opacity = "0"
 }
 
 
-function closeContact() {
-  var elem = document.getElementById("contactform");
-  elem.style.display = "none";
-  document.getElementById("form1").reset();
-  var dark = document.getElementById("darkdiv");
-  dark.style.zIndex = "-1";
-  dark.style.opacity = "0";
-}
+initPage()
