@@ -2,15 +2,12 @@ const path = require('path');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const CopyPlugin = require('copy-webpack-plugin');
 
 
 module.exports = {
-  // The entry point file described above
-  entry: ['./src/terminal.js', './src/index.js'],
-  // The location of the build folder described above
+  entry: ['./src/index.js', './src/terminal.js'],
   output: {
-    path: path.resolve(__dirname, 'public'),
+    path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js'
   },
   module: {
@@ -47,7 +44,4 @@ module.exports = {
       minify: false,
     }),
   ],
-  // Optional and for development only. This provides the ability to
-  // map the built code back to the original source format when debugging.
-  devtool: 'eval-source-map',
 };
