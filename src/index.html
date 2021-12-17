@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+
+<!--Portfolio site for Nils Berndt - Designer / Developer.
+
+This site utilizes HTML5, Vanilla JS, a CSS 'grid' layout with modular formatting,
+
+and Google Firebase cloud functionality for site contact messaging and hosting.
+
+It also displays interactive original SVG artwork with programmatic animation.
+
+Thanks for looking!-->
+
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>NILS BERNDT | PORTFOLIO</title>
+  <!--Favicons-->
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/images/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon-16x16.png">
+  <link rel="manifest" href="assets/images/site.webmanifest">
+  <link rel="mask-icon" href="assets/images/safari-pinned-tab.svg" color="#5bbad5">
+  <link rel="shortcut icon" href="assets/images/favicon.ico">
+
+  <link rel="prefetch" href="assets/images/html5-logo-color.png" as="image">
+  <link rel="prefetch" href="assets/images/sass-logo-color.png" as="image">
+  <link rel="prefetch" href="assets/images/js-es6-logo-color.png" as="image">
+  <link rel="prefetch" href="assets/images/react-logo-color.png" as="image">
+  <link rel="prefetch" href="assets/images/redux-logo-color.png" as="image">
+  <link rel="prefetch" href="assets/images/firebase-logo-color.png" as="image">
+  <link rel="prefetch" href="assets/images/cloudfunctions-logo-color.png" as="image">
+  <link rel="prefetch" href="assets/images/chartjs-logo-color.png" as="image">
+  <link rel="prefetch" href="assets/images/android-logo-color.png" as="image">
+  <link rel="prefetch" href="assets/images/java-logo-color.png" as="image">
+  <link rel="prefetch" href="assets/images/xml-logo-color.png" as="image">
+  <link rel="prefetch" href="assets/images/js-logo-color.png" as="image">
+  <link rel="prefetch" href="assets/images/github2-logo-color.png" as="image">
+  <link rel="prefetch" href="assets/images/contact-logo-color.png" as="image">
+
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="msapplication-config" content="assets/images/browserconfig.xml">
+  <meta name="theme-color" content="#ffffff">
+  <!--Google Font-->
+  <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:300,400,700" rel="stylesheet">
+</head>
+
+<body>
+  <!--Contact Form (Hidden by default)-->
+  <div id="contactform" class="m-contact-form e-fade-in-fast">
+    <h1>CONTACT ME</h1>
+    <form id="form1" action="javascript:;" name="form1">
+      <input type="hidden" name="contact_number">
+      <input type="text" id="vname" name="name" placeholder="Name*" required><br>
+      <input type="text" id="vemail" name="email" placeholder="E-mail*" required><br>
+      <input type="text" id="vphone" name="phone" placeholder="Phone (optional)"><br>
+      <textarea type="text" cols="50" id="vmsg" name="msg" placeholder="Enter Message*" required></textarea>
+    </form>
+    <div class="m-contact-form--buttons">
+      <button type="reset" class="e-shrink-3" id="cancel" form="form1" value="Cancel">CANCEL</button>
+      <button type="submit" class="e-shrink-3" id="submit" form="form1" value="Submit">SUBMIT</button>
+    </div>
+  </div>
+  <!--End Contact Form-->
+
+  <!--Terminal 'easter egg' (Hidden by default. You found it!)-->
+  <div>
+    <form class="e-fade-in-fast m-terminal-container m-terminal-input e-hidden" action="javascript:;">
+      <!-- hidden input for submit on 'enter/return'-->
+      <input type="submit" class="e-hidden" />
+      <p class="m-bash-dollar">$</p>
+      <input type="text" class="m-bash-input" placeholder="help" autofocus="autofocus" maxlength="30" />
+    </form>
+    <div class="m-terminal-container m-terminal-info">
+      <div class="m-terminal-info--text"></div>
+    </div>
+  </div>
+  <!--End 'terminal'-->
+
+  <!--'Master' grid for page layout-->
+  <div class="m-page-container e-fade-in">
+    <header>
+      <!--Header grid-->
+      <div class="m-header">
+        <object data="assets/images/header-logo.svg" class="m-header--logo-svg" type="image/svg+xml"></object>
+      </div>
+    </header>
+
+    <!--dark bg when contact modal is opened-->
+    <div id="darkdiv" class="e-darken"></div>
+
+
+    <div id="spacer" class="l-spacer"></div>
+
+    <!--About Section-->
+    <div class="m-body--project-container">
+      <div class="m-body--project-top-gradient" style="visibility: hidden"></div>
+      <div class="m-body--project-content-container"><br />
+        <p class="m-body--project-description-text">
+          Hello! I'm an<br /><b>experienced full-stack developer</b><br />
+          with a creative passion<br />for code and design.</b><br />
+        </p><br /><br /><br />
+      </div>
+      <div class="m-body--project-bottom-gradient m-body--project-bottom-gradient-about">
+        <h1 class="m-body--project-bottom-gradient-message">PERSONAL PROJECTS</h1>
+      </div>
+    </div>
+
+    <!--ConCSStruct Project-->
+    <div class="m-body--project-container">
+      <div class="m-body--project-top-gradient"></div>
+      <object data="assets/images/concsstruct-logo--header.svg" class="m-body--project-logo-image"
+        type="image/svg+xml"></object>
+      <div class="m-body--project-content-container"><br>
+        <p class="m-body--project-description-text">A coding-based puzzle game<br>utilizing <b>React & Redux.</b></p>
+        <br>
+        <a href="https://www.concsstruct.com" target="_blank" title="View Site"><img src="assets/images/concsstruct.png"
+            class="m-body--project-content-image" title="ConCSStruct" width="700" height="394" /></a><br><br>
+        <div class="m-body--project-content-button-container">
+          <a href="https://www.concsstruct.com" target="_blank" title="View Site">
+            <img src="assets/images/site-logo.png" alt="Web" width="auto" height="100%" />
+            SITE</a>
+          <a href="https://github.com/nilsberndt/concsstruct" target="_blank" title="View Source">
+            <img src="assets/images/github-logo-white.png" alt="GitHub" width="auto" height="100%" />
+            SRC</a>
+        </div><br>
+      </div>
+      <div class="m-body--project-tools-container">
+        <h3>BUILT WITH:</h3>
+        <a href="https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5" target="_blank" title="HTML5">
+          <img id="icoHtml1" src="assets/images/html5-logo-white.png" height="30%" width="auto" />
+        </a>
+        <a href="https://sass-lang.com" target="_blank" title="SASS">
+          <img id="icoSass" src="assets/images/sass-logo-white.png" height="30%" width="auto" />
+        </a>
+        <a href="https://www.w3schools.com/Js/js_es6.asp" target="_blank" title="JavaScript ES6">
+          <img id="icoJsEs61" src="assets/images/js-es6-logo-white.png" height="30%" width="auto" />
+        </a>
+        <a href="https://reactjs.org" target="_blank" title="React.js">
+          <img id="icoReact1" src="assets/images/react-logo-white.png" height="30%" width="auto" />
+        </a>
+        <a href="https://redux.js.org" target="_blank" title="Redux">
+          <img id="icoRedux" src="assets/images/redux-logo-white.png" height="30%" width="auto" />
+        </a>
+        <a href="https://firebase.google.com" target="_blank" title="Google Firebase">
+          <img id="icoFirebase1" src="assets/images/firebase-logo-white.png" height="30%" width="auto" />
+        </a>
+      </div>
+      <div class="m-body--project-bottom-gradient m-body--project-bottom-gradient-opposite"></div>
+    </div>
+
+    <!--Spot vs. Premium Project-->
+    <div class="m-body--project-container">
+      <div class="m-body--project-top-gradient m-body--project-top-gradient-opposite"></div>
+      <div class="m-body--project-logo-image-spotvspremium">
+        <span class="m-body--project-spotvspremium-logo"><b style="color: #4f4f4f;">SPOT</b>vs<b
+            style="color: #4f4f4f;">PREMIUM</b></span>
+      </div>
+      <div class=" m-body--project-content-container"><br>
+        <p class="m-body--project-description-text">A precious metal bullion<br>investment tracker
+          utilizing<br><b>Google Cloud Functions &<br>Real-Time Charting</b></p>
+        <br>
+        <a href="https://www.spotvspremium.com" target="_blank" title="View Site"><img src="assets/images/spot-vs-premium.png"
+            class="m-body--project-content-image" title="ConCSStruct" width="700" height="394" /></a><br><br>
+        <div class="m-body--project-content-button-container">
+          <a href="https://www.spotvspremium.com" target="_blank" title="View Site">
+            <img src="assets/images/site-logo.png" alt="Web" width="auto" height="100%" />
+            SITE</a>
+          <a href="https://github.com/nilsberndt/spot-vs-premium" target="_blank" title="View Source">
+            <img src="assets/images/github-logo-white.png" alt="GitHub" width="auto" height="100%" />
+            SRC</a>
+        </div><br>
+      </div>
+      <div class="m-body--project-tools-container">
+        <h3>BUILT WITH:</h3>
+        <a href="https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5" target="_blank" title="HTML5">
+          <img id="icoHtml3" src="assets/images/html5-logo-white.png" height="30%" width="auto" />
+        </a>
+        <a href="https://www.chartjs.org/" target="_blank" title="Chart.js">
+          <img id="icoChartJS" src="assets/images/chartjs-logo-white.png" height="30%" width="auto" />
+        </a>
+        <a href="https://www.w3schools.com/Js/js_es6.asp" target="_blank" title="JavaScript ES6">
+          <img id="icoJsEs62" src="assets/images/js-es6-logo-white.png" height="30%" width="auto" />
+        </a>
+        <a href="https://reactjs.org" target="_blank" title="React.js">
+          <img id="icoReact2" src="assets/images/react-logo-white.png" height="30%" width="auto" />
+        </a>
+        <a href="https://cloud.google.com/functions" target="_blank" title="Google Cloud Functions">
+          <img id="icoCloudFunctions" src="assets/images/cloudfunctions-logo-white.png" height="30%" width="auto" />
+        </a>
+        <a href="https://firebase.google.com" target="_blank" title="Google Firebase">
+          <img id="icoFirebase3" src="assets/images/firebase-logo-white.png" height="30%" width="auto" />
+        </a>
+      </div>
+      <div class="m-body--project-bottom-gradient"></div>
+    </div>
+
+    <!--10kT Project-->
+    <div class="m-body--project-container">
+      <div class="m-body--project-top-gradient"></div>
+      <object data="assets/images/10kt-logo--header.svg" class="m-body--project-logo-image" type="image/svg+xml"></object>
+      <div class="m-body--project-content-container"><br>
+        <p class="m-body--project-description-text">A cloud-based collaborative<br>idea generation platform<br>for
+          <b>Android Mobile & Web</b>.
+        </p><br>
+        <a href="https://10kt.app" target="_blank" title="View Site"><img src="assets/images/10kt.png" id="tenKTimg"
+            class="m-body--project-content-image-tenkt" title="10kT" /></a>
+        <div class="m-body--project-content-button-container">
+          <a href="https://10kt.app" target="_blank" title="View Site">
+            <img src="assets/images/site-logo.png" alt="Web" width="auto" height="100%" />
+            SITE</a>
+          <a href="https://github.com/nilsberndt/tenkt-app" target="_blank" title="View Source">
+            <img src="assets/images/github-logo-white.png" alt="github" width="auto" height="100%" />
+            SRC</a>
+        </div><br>
+      </div>
+      <div class="m-body--project-tools-container">
+        <h3>BUILT WITH:</h3>
+        <a href="https://developer.android.com" target="_blank" title="Android Studio">
+          <img id="icoAndroid" src="assets/images/android-logo-white.png" />
+        </a>
+        <a href="https://www.oracle.com/java" target="_blank" title="Java">
+          <img id="icoJava" src="assets/images/java-logo-white.png" />
+        </a>
+        <a href="https://www.w3.org/XML" target="_blank" title="XML">
+          <img id="icoXml" src="assets/images/xml-logo-white.png" />
+        </a>
+        <a href="https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5" target="_blank" title="HTML5">
+          <img id="icoHtml2" src="assets/images/html5-logo-white.png" />
+        </a>
+        <a href="https://developer.mozilla.org/bm/docs/Web/JavaScript" target="_blank" title="JavaScript">
+          <img id="icoJs" src="assets/images/js-logo-white.png" />
+        </a>
+        <a href="https://firebase.google.com" target="_blank" title="Google Firebase">
+          <img id="icoFirebase2" src="assets/images/firebase-logo-white.png" />
+        </a>
+      </div>
+      <div class="m-body--project-bottom-gradient m-body--project-bottom-gradient-opposite"></div>
+    </div>
+
+    <!--Page tag for 'SKILLS'-->
+    <div id="skills"></div>
+    <!--Skills & Abilities-->
+    <div class="m-body--project-container-images">
+      <div class="m-body--project-top-gradient m-body--project-top-gradient-opposite">
+        <h1 class="m-body--project-bottom-gradient-message-2">TECHNICAL SKILLS</h1><br>
+      </div>
+      <div class="m-body--project-logo-image"></div>
+      <div class="m-body--project-content-container"><br><br>
+        <div class="e-shadow m-cascade--container">
+          <h4 class="m-cascade m-cascade--header">Front End</h4>
+          <ul>
+            <li class="m-cascade m-cascade--1"><b>Languages:</b> HTML / CSS / Javascript / Python / Java / C#</li>
+            <li class="m-cascade m-cascade--2"><b>Frameworks:</b> React / Redux / Vue / Angular</li>
+            <li class="m-cascade m-cascade--3"><b>Integrations:</b> CMS (Wordpress etc.)</li>
+            <li class="m-cascade m-cascade--4"><b>Libraries:</b> Bootstrap / Material / Quasar / React UI</li>
+            <li class="m-cascade m-cascade--5"><b>Special Requirements:</b> Responsive / Native Mobile / Accessible</li>
+          </ul>
+        </div><br><br>
+        <div class="e-shadow m-cascade--container">
+          <h4 class="m-cascade m-cascade--header">Back End</h4>
+          <ul>
+            <li class="m-cascade m-cascade--1"><b>Platforms:</b> Node.js / npm / Serverless / Django</li>
+            <li class="m-cascade m-cascade--2"><b>APIs:</b> REST / GraphQL / RPC</li>
+            <li class="m-cascade m-cascade--3"><b>Cloud Providers:</b> AWS / Google Cloud / IBM Cloud</li>
+            <li class="m-cascade m-cascade--4"><b>Integrations:</b> Social Networks / CRM / Content Providers</li>
+            <li class="m-cascade m-cascade--5"><b>Database:</b> MongoDB / MySQL / Redis</li>
+          </ul>
+        </div><br><br>
+        <div class="e-shadow m-cascade--container">
+          <h4 class="m-cascade m-cascade--header">Development Tools</h4>
+          <ul>
+            <li class="m-cascade m-cascade--1"><b>Version Control:</b> Git (Github, Gitlab)</li>
+            <li class="m-cascade m-cascade--2"><b>IDEs:</b> VScode / Sublime / Eclipse / IntelliJ / Notepad++</li>
+            <li class="m-cascade m-cascade--3"><b>CI/CD:</b> Wercker / Travis / Circle / GH Actions</li>
+            <li class="m-cascade m-cascade--4"><b>Bundlers/Modular:</b> Webpack, SASS, Babel, Handlebars, Browserify
+            </li>
+            <li class="m-cascade m-cascade--5"><b>Test/Debug/Clean:</b> Jest, Jasmine, Mocha, ESLint, Chrome Devtools
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+  </div><br><br><br>
+
+  <footer class="m-footer">
+    <a href="https://github.com/nilsberndt/" target="_blank">
+      <img class="e-shrink-3" id="icoGithub" src="assets/images/github2-logo-white.png" width="40" height="auto" />
+    </a>
+    <img class="e-shrink-3" id="icoContact" src="assets/images/contact-logo-white.png" width="40" height="auto" /><br><br>
+    <h5>&#169;2022 NILS BERNDT - ALL RIGHTS RESERVED - PAGE DESIGN & ALL CONTENT ORIGINAL</h5>
+  </footer>
+</body>
+
+</html>

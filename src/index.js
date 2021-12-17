@@ -1,3 +1,8 @@
+import { initializeApp } from 'firebase/app'
+import { getDatabase, ref, set } from 'firebase/database'
+
+import './index.html'
+import './styles.css'
 
 // Icon names to file names map
 const icoMap = {
@@ -32,26 +37,38 @@ let mouseGoing = true
 // 'Terminal' closed by default
 localStorage.isTerminalOpen = "false" // Note: localStorage cannot use true boolean values, thus the string
 
+// Initialize Firebase
+const firebaseConfig = {
+  apiKey: "AIzaSyB2Kn8Cv1Y8MUgR6m-0oCpo-vKvFAZnxHE", // Don't worry, this doesn't need to be private
+  authDomain: "portfolio-12beb.firebaseapp.com",
+  databaseURL: "https://portfolio-12beb.firebaseio.com",
+  projectId: "portfolio-12beb",
+  storageBucket: "portfolio-12beb.appspot.com",
+  messagingSenderId: "598758145112"
+}
+
+const firebaseApp = initializeApp(firebaseConfig)
+const firebaseDB = getDatabase(firebaseApp)
+
+
+const importAllImages = (r) => {
+  let images = {}
+  r.keys().map((item, index) => { images[item.replace('./', '')] = r(item) })
+  return images
+}
+
+const images = importAllImages(require.context('./assets/images', false, /\.(png)$/))
 
 const initPage = () => {
-  // Initialize Firebase
-  const firebaseConfig = {
-    apiKey: "AIzaSyB2Kn8Cv1Y8MUgR6m-0oCpo-vKvFAZnxHE", // Don't worry, this doesn't need to be private
-    authDomain: "portfolio-12beb.firebaseapp.com",
-    databaseURL: "https://portfolio-12beb.firebaseio.com",
-    projectId: "portfolio-12beb",
-    storageBucket: "portfolio-12beb.appspot.com",
-    messagingSenderId: "598758145112"
-  }
-
-  firebase.initializeApp(firebaseConfig)
 
   // Iterate over map of icons and add event listeners for mouseover/mouseout icon color changes
   Object.keys(icoMap).map(icoKey => {
     const icoElem = document.getElementById(icoKey)
     const icoVal = icoMap[icoKey]
-    icoElem.addEventListener('mouseover', () => changeImage(icoKey, `images/${icoVal}-logo-color.png`))
-    icoElem.addEventListener('mouseout', () => changeImage(icoKey, `images/${icoVal}-logo-white.png`))
+    const icoColor = images[`${icoVal}-logo-color.png`]
+    const icoWhite = images[`${icoVal}-logo-white.png`]
+    icoElem.addEventListener('mouseover', () => changeImage(icoKey, icoColor))
+    icoElem.addEventListener('mouseout', () => changeImage(icoKey, icoWhite))
   })
 
   // Set additional page event listeners
@@ -111,11 +128,11 @@ const sendMessage = () => {
   const nowKey = nowTime.getHours() + nowTime.getMilliseconds()
   const dbPath = `messages/${nowYear}/${nowMonth}/${nowDay}/${nowKey}`
 
-  firebase.database().ref(dbPath).set({
-    "name": vname,
-    "email": vemail,
-    "phone": vphone,
-    "message": vmsg
+  set(ref(firebaseDB, dbPath), {
+    name: vname,
+    email: vemail,
+    phone: vphone,
+    message: vmsg
   })
 
   closeContact()
@@ -137,6 +154,12 @@ const mouseGo = (mouse) => {
 
 const changeImage = (imgId, newImgSrc) => {
   document.getElementById(imgId).src = newImgSrc;
+}
+
+
+const showTerminal = () => {
+  document.querySelector(".m-terminal-container").style.display = "grid"
+  document.querySelector(".m-bash-input").focus()
 }
 
 const checkTerminal = () => {
@@ -203,6 +226,5 @@ const closeContact = () => {
   dark.style.zIndex = "-1"
   dark.style.opacity = "0"
 }
-
 
 initPage()

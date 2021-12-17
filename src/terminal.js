@@ -1,4 +1,3 @@
-
 // State stuff
 let lastCommand = ""
 let hiddenEnabled = false
@@ -36,11 +35,6 @@ const checkKey = (e) => {
     bashInput.value = ""
     localStorage.isTerminalOpen = "false"
   }
-}
-
-const showTerminal = () => {
-  terminalContainer.style.display = "grid"
-  bashInput.focus()
 }
 
 const executeCommand = () => {

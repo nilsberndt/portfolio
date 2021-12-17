@@ -1,3 +1,10 @@
+@font-face {
+  font-family: 'Josefin Sans';
+  src: url(./assets/fonts/JosefinSans-VF.ttf) format('truetype');
+  font-weight: 100 700;
+}
+
+
 /* base site styles */
 
 *{
@@ -709,7 +716,7 @@ a.m-footer-mail:hover{
   font-family: monospace;
   font-size: calc(0.75vh + 0.75vw);
   text-align: right;
-  grid-area: "bashdollar";
+  grid-area: bashdollar;
 }
 
 .m-terminal-container {
@@ -762,7 +769,7 @@ input.m-bash-input {
   border: none;
   outline-width: 0;
 	box-shadow: none;
-  grid-area: "bashinput";
+  grid-area: bashinput;
 }
 
 input.m-bash-input[type='text'] {
