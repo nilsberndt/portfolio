@@ -28,6 +28,15 @@ const icoMap = {
   'icoContact': 'contact',
 }
 
+// This is so webpack can find the images with dynamic names since they become hashes
+const importAllIcons = (r) => {
+  let images = {}
+  r.keys().map((item, index) => { images[item.replace('./', '')] = r(item) })
+  return images
+}
+
+const icons = importAllIcons(require.context('./assets/images', false, /^.*logo.*\.png$/))
+
 // Set state stuff for the header animation
 let coffeeFull = true
 let monitor1power = true
@@ -50,23 +59,14 @@ const firebaseConfig = {
 const firebaseApp = initializeApp(firebaseConfig)
 const firebaseDB = getDatabase(firebaseApp)
 
-
-const importAllImages = (r) => {
-  let images = {}
-  r.keys().map((item, index) => { images[item.replace('./', '')] = r(item) })
-  return images
-}
-
-const images = importAllImages(require.context('./assets/images', false, /\.(png)$/))
-
 const initPage = () => {
 
   // Iterate over map of icons and add event listeners for mouseover/mouseout icon color changes
   Object.keys(icoMap).map(icoKey => {
     const icoElem = document.getElementById(icoKey)
     const icoVal = icoMap[icoKey]
-    const icoColor = images[`${icoVal}-logo-color.png`]
-    const icoWhite = images[`${icoVal}-logo-white.png`]
+    const icoColor = icons[`${icoVal}-logo-color.png`]
+    const icoWhite = icons[`${icoVal}-logo-white.png`]
     icoElem.addEventListener('mouseover', () => changeImage(icoKey, icoColor))
     icoElem.addEventListener('mouseout', () => changeImage(icoKey, icoWhite))
   })
