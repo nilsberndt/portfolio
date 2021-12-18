@@ -18,5 +18,23 @@
     ],
     "source": "functions",
     "runtime": "nodejs14"
+  },
+  "emulators": {
+    "functions": {
+      "port": 5001
+    },
+    "hosting": {
+      "port": 5000
+    },
+    "ui": {
+      "enabled": true,
+      "port": 4000
+    },
+    "database": {
+      "port": 9000
+    }
+  },
+  "database": {
+    "rules": "database.rules.json"
   }
 }

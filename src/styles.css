@@ -212,10 +212,6 @@ button[type="submit"]{
   text-justify: none;
 }
 
-.l-spacer{
-  margin-top: 20%;
-}
-
 /* module (m) styles */
 
 .m-body--project-container{

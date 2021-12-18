@@ -1,5 +1,5 @@
 import { initializeApp } from 'firebase/app'
-import { getDatabase, ref, set } from 'firebase/database'
+import { getDatabase, connectDatabaseEmulator, ref, set } from 'firebase/database'
 
 
 // Initialize Firebase
@@ -15,6 +15,11 @@ const firebaseConfig = {
 const firebaseApp = initializeApp(firebaseConfig)
 
 const firebaseDB = getDatabase(firebaseApp)
+
+if (location.hostname === "localhost") {
+  // Point to the RTDB emulator running on localhost.
+  connectDatabaseEmulator(firebaseDB, "localhost", 9000)
+} 
 
 const contactForm = document.getElementById("contactform")
 
@@ -38,12 +43,13 @@ const contactFormDefault =
     <button type="submit" class="e-shrink-3" id="submit" form="form1" value="Submit">SUBMIT</button>
   </div>`
 
+// Message data
+const vname = document.getElementById("vname")
+const vemail = document.getElementById("vemail")
+const vphone = document.getElementById("vphone")
+const vmsg = document.getElementById("vmsg")
+
 const sendMessage = () => {
-  // Message data
-  const vname = document.getElementById("vname").value
-  const vphone = document.getElementById("vphone").value
-  const vemail = document.getElementById("vemail").value
-  const vmsg = document.getElementById("vmsg").value
 
   // DB Path data
   const nowTime = new Date()
@@ -54,10 +60,10 @@ const sendMessage = () => {
   const dbPath = `messages/${nowYear}/${nowMonth}/${nowDay}/${nowKey}`
 
   set(ref(firebaseDB, dbPath), {
-    name: vname,
-    email: vemail,
-    phone: vphone,
-    message: vmsg
+    name: vname.value,
+    email: vemail.value,
+    phone: vphone.value,
+    message: vmsg.value,
   })
 
   contactForm.innerHTML = contactFormComplete

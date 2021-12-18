@@ -1,0 +1,14 @@
+{
+  "rules": {
+    "messages": {
+      "$year": {
+        "$day": {
+          "$key": {
+            ".write": true,
+            ".read": false
+          }
+        }
+      }
+    }
+  }
+}

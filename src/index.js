@@ -74,9 +74,7 @@ const initPage = () => {
   getAndSetEvent('darkdiv', 'click', closeContact)
   getAndSetEvent('cancel', 'click', closeContact)
   getAndSetEvent('form1', 'submit', () => {
-    import(/* webpackChunkName: "firebase" */ './firebase.js').then(module => {
-      module.sendMessage()
-    })
+    import(/* webpackChunkName: "firebase" */ './firebase.js').then(module => { module.sendMessage })
   })
   getAndSetEvent('icoContact', 'click', showContact)
 
